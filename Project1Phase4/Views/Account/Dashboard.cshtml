@@ -1,0 +1,367 @@
+﻿@using System.Security.Claims
+@* FIRST METHOD
+
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+<p>Welcome to Dashboard</p>
+
+ *@
+
+
+@* BELOW IS THE SECOND METHOD *@
+
+@model User
+
+
+@* <h2>Welcome, @ViewData["Username"]</h2>
+<h2>Welcome, @ViewData["Email"]</h2> *@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        @* <title>Dashboard</title> *@
+
+        <!-- Include any necesaary style or scripts. -->
+        <style>
+
+            /* Modal styles */
+            .modal{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+            }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+
+
+
+
+            /* Default styles - can be overridden by user preferences. */
+            body{
+                background-color:#f0f0f0;
+                color:#333;
+            }
+
+            .dashboard-container{
+                max-width:800px;
+                margin:0 auto;
+                padding:20px;
+                border:1px solid #ccc;
+                background-color:#fff;
+            }
+
+            .task-list{
+                list-style-type:none;
+                padding:0;
+            }
+
+            .task-item{
+                margin-bottom:10px;
+            }
+
+            .completed-task{
+                text-decoration:line-through;
+                color:#2158;
+            }
+
+
+        </style>
+
+    </head>
+
+    <body>
+        <h2>Dashboard</h2>
+
+        <!-- View Account Information section -->
+        <div>
+            <h3>Account Information</h3>
+            <p>Username: @(User.Identity?.Name)</p>
+            <p>Email: @(User.FindFirst(ClaimTypes.Email)?.Value)</p>
+            <p>Account Number : 1234567890</p>
+            <p>Account Balance: $1500.00</p>
+        </div>
+
+
+        <!-- Transaction History section -->
+        <div>
+            <h3>Transaction History</h3>            
+            <!--Display a list of recent transactions-->
+            <ul>
+                <li>
+                    <span>Date: 2024-01-21</span>
+                    <span>Amount: $100.00</span>
+                    <span>Description: Purchase at ABC store</span>
+                </li>
+            <li>
+                <span>Date: 2023-05-25</span>
+                <span>Amount: $500.00</span>
+                <span>Description: Online Payment</span>
+            </li>
+            </ul>
+        </div>
+
+
+
+        <!-- Financial Overview section -->
+        <div>
+            <h3>Financial Overview</h3>            
+            <!-- Display a summary of financial data -->
+            <div>
+                <p>Account Balance: $1,500.00</p>
+                <p>Available Funds: $1,200.00</p>
+                <p>Investment Portfolio Value: $50,000.00</p>
+                <p>Credit Card Debt: -$500.00</p>
+            </div>
+        </div>
+
+
+
+
+        <!-- Personalization Settings section -->
+        <div>
+            <h3>Personalization Settings</h3>
+            <!-- Form for personalization settings -->
+            <form id="personalizationForm">
+                <label for=" backgroundColor">Background Color: </label>
+                <input type="color" id="backgroundColor" name="backgroundColor" />
+
+                <label for="textColor">Text Color : </label>
+                <input type="color" id="textColor" name="textColor" />
+
+                <button type="button" onclick="applyPersonalization()">Apply Personalization</button>
+            </form>
+        </div>
+
+
+
+        <!-- Support and Help section -->
+        <div>
+            <h3>Support and Help</h3>
+            <!-- Links/buttons for accessing help resources -->
+            <ul>
+                <li><a href="/account/faq">FAQs</a></li>
+                <li><a href="/account/documentation"> Documentation </a></li>
+                <li><button onclick="contactSupport()">Contact Support</button></li>
+            </ul>
+        </div>
+
+
+    <!-- Modal for contacting support -->
+    <div id="supportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSupportModal()">&times;</span>
+            <h2>Contact Support</h2>
+            <!-- Include a form or chat interface for contacting support -->
+            <p>This is a placeholder for your support form or chat interface.</p>
+        </div>
+    </div>
+
+
+
+        <!-- Integration with Other Services section -->
+        <div>
+            <h3>Integration with Other Services</h3>
+
+            <!-- Third-party widgets or services -->
+            <div>
+                <!--Example: News Feed-->
+                <iframe src="https://www.example.com/news-feed" width="700" height="300" frameborder="0"></iframe>
+
+                <!-- Example: Weather Widget -->
+                <script src="https://www.example.com/weather-widget.js" defer></script>
+
+            </div>
+        </div>
+
+
+        @* <!-- Logout button -->
+        <div>
+            <form asp-controller="Account" asp-action="Logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        </div> *@
+
+
+
+        <!-- Task Management section -->
+        <div>
+            <h3>Task Management</h3>
+            <!--Task input from-->
+            <form onsubmit="addTask(); return false;">
+                <label for="taskInput">New Task ; </label>
+                <input type="text" id="taskInput" required />
+                <button type="submit">Add Task</button>
+            </form>
+
+            <!--Task List-->
+            <ul class="task-list" id="taskList">
+                <!-- Task will be added dynamically here....  -->
+            </ul>
+        </div>
+
+
+
+        <!-- Account Settings section -->
+        <div>
+            <h3>Account Settings</h3>
+            <!-- Change Password form -->
+            <form asp-controller="Account" asp-action="ChangePassword" method="post">
+                <div>
+                    <label for="CurrentPassword">Current Password: </label>
+                    <input type="password" name="CurrentPassword" id="CurrentPassword" required />
+                </div>
+                <div>
+                    <label for="NewPassword">New Password: </label>
+                    <input type="password" name="NewPassword" id="NewPassword" required />
+                </div>
+                <div>
+                    <button type="submit">Change Password</button>
+                </div>
+            </form>
+
+            <!-- Update Email form -->
+            <form asp-controller="Account" asp-action="UpdateEmail" method="post">
+                <div>
+                    <label for=" NewEmail">New Email: </label>
+                    <input type="email" name="NewEmail" id="NewEmail" required />
+                </div>
+                <div>
+                    <button type="submit">Update Email</button>
+                </div>
+            </form>
+
+        </div>
+
+
+
+        <!-- Account-related activities buttons -->
+        
+
+        <!-- Logout button -->
+        <form asp-controller="Account" asp-action="Logout" method="post">
+            <button type="submit">Logout</button>
+        </form>
+
+        <script>
+
+        function contactSupport() {
+            // Open the support modal
+            var modal = document.getElementById("supportModal");
+            modal.style.display = "block";
+        }
+
+        function closeSupportModal() {
+            // Close the support modal
+            var modal = document.getElementById("supportModal");
+            modal.style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function (event) {
+            var modal = document.getElementById("supportModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+
+
+            function performActivity(activity) {
+                alert("Performing: " + activity);
+            }
+
+            //Task management functions
+            function addTask() {
+                var taskInput = document.getElementById("taskInput");
+                var taskList = document.getElementById("taskList");
+
+                if (taskInput.value.trim() !== "") {
+                    var taskItem = document.createElement("li");
+                    taskItem.className = "task-item";
+                    taskItem.innerHTML = '<input type="checkbox" onchange="completeTask(this)"> ' + '<span>' + taskInput.value + '</span>' + '<button onclick="deleteTask(this)">Delete</button>';
+                    taskList.appendChild(taskItem);
+                    taskInput.value = "";
+                }
+            }
+
+            function completeTask(checkbox) {
+                var taskText = chekbox.nextElementSibling;
+
+                if (checkbox.checked) {
+                    taskText.classList.add("completed-task");
+                }
+                else {
+                    taskText.classList.remove("completed-task");
+                }
+             }
+
+            function deleteTask(button) {
+                var taskItem = button.parentNode;
+                taskItem.parentNode.removeChild(taskItem);
+            }
+
+
+
+
+
+
+            function performActivity1() {
+                alert("Perform Account Activity 1");
+            }
+
+            function performActivity2() {
+                alert("Perform Account Activity 2");
+            }
+
+            function applyPersonalization() {
+                var backgroundColor = document.getElementById("backgroundColor").value;
+                var textColor = document.getElementById("textColor").value;
+
+                document.body.style.backgroundColor = backgroundColor;
+                document.body.style.color = textColor;
+            }
+
+            function contactSupport() {
+                alert("Contacting Support");
+            }
+
+        </script>
+
+    </body>
+</html>

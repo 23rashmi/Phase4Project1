@@ -1,0 +1,16 @@
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\BankDetailsProject1.GeneratedMSBuildEditorConfig.editorconfig
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\BankDetailsProject1.AssemblyInfoInputs.cache
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\BankDetailsProject1.AssemblyInfo.cs
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\BankDetailsProject1.csproj.CoreCompileInputs.cache
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\BankDetailsProject1.dll
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\refint\BankDetailsProject1.dll
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\BankDetailsProject1.pdb
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\bin\Debug\net6.0\BankDetailsProject1.deps.json
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\bin\Debug\net6.0\BankDetailsProject1.dll
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\bin\Debug\net6.0\BankDetailsProject1.pdb
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\ref\BankDetailsProject1.dll
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\bin\Debug\net6.0\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
+D:\MPHASIS PROJECTS\Phase-4\Project1Phase4\BankDetailsProject1\obj\Debug\net6.0\BankDetailsProject1.csproj.AssemblyReference.cache

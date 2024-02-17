@@ -1,0 +1,39 @@
+﻿@model User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateEmail</title>
+</head>
+<body>
+    <h2>Update Email</h2>
+    @if(ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <form asp-action="UpdateEmail" method="post">
+        <div class="form-group">
+            <label for="newEmail">New Email:</label>
+            <input type="email" class="form-control" id="newEmail" name="newEmail" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Email</button>
+    </form>
+
+
+</body>
+</html>

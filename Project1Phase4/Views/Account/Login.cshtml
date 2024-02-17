@@ -1,0 +1,86 @@
+﻿@model Project1Phase4.Models.User
+
+
+
+
+
+@* FIRST METHOD
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p>@ViewBag.ErrorMessage</p>
+}
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.Username)
+        @Html.TextBoxFor(model=>model.Username)
+    </div>
+
+    <div>
+        @Html.LabelFor(model=>model.Password)
+        @Html.TextBoxFor(model=>model.Password)
+    </div>
+
+    <div>
+        <input type="submit" value="Login"/>
+    </div>
+}
+ *@
+
+
+
+@* second method *@
+
+
+@* <form asp-controller="Account" asp-action="Login" method="post">
+    <label asp-for="Username">Username:</label>
+    <input asp-for="Username" />
+
+    <label asp-for="Password">Password:</label>
+    <input asp-for="Password" type="password" />
+
+    <button type="submit">Login</button>
+</form> *@
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Pge</title>
+    </head>
+    <body>
+        <h2>Login</h2>
+
+        <form asp-controller="Account" asp-action="Login" method="post" >
+            <div>
+                <label asp-for="Username">Username: </label>
+                <input asp-for="Username"/>
+                <span asp-validation-for="Username"></span>
+            </div>
+
+            <div>
+                <label asp-for="Password">Password: </label>
+                <input asp-for="Password" type="password"/>
+                <span asp-validation-for="Password"></span>
+            </div>
+
+        <div>
+            <label asp-for="Email">Email: </label>
+            <input asp-for="Email" type="email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+
+            <button type="submit">Login</button>
+
+        </form>
+    </body>
+</html>
